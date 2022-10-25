@@ -8,27 +8,25 @@ const Login = () => {
   const { googleLogIn, gitHubLogIn } = useContext(AuthContext);
   const handleGoogleLogIn = () => {
     googleLogIn()
-    .then(result => {
-      console.log(result.user)
-    })
-    .catch(error => console.error(error))
-  }
-  const handleGigHubLogIn  = () => {
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.error(error));
+  };
+  const handleGigHubLogIn = () => {
     gitHubLogIn()
-    .then(result => {
-      console.log(result.user)
-    })
-    .catch(error => console.error(error))
-  }
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold mx-10 mb-3">Login now!</h1>
-          </div>
           <div className="card flex-shrink-0 rounded-lg w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body ">
+            <form className="card-body w-full lg:w-96">
+              <h1 className="text-xl font-bold">Login now!</h1>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -70,7 +68,7 @@ const Login = () => {
             </form>
           </div>
 
-          <div className="w-full mt-4">
+          <div className="w-full  mt-4">
             <button
               onClick={handleGoogleLogIn}
               className="flex items-center border bg-white shadow-lg rounded-lg w-full p-1 mb-2"
