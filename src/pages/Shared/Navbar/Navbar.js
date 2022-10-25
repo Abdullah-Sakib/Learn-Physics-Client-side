@@ -31,7 +31,7 @@ const Navbar = () => {
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
               <Link
-                to="/"
+                to="/courses"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
