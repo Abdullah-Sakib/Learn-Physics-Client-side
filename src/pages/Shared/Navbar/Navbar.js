@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <div className="bg-gray-900">
       <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -63,15 +68,21 @@ const Navbar = () => {
               </button>
             </li>
             <li>
-              <Link
-                to="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Log in"
-                title="Log in"
-              >
-                Log in
-              </Link>
+              {user?.uid ? (
+                <img title={user?.displayName} className="w-10 rounded-full" src={user?.photoURL} alt=""  referrerPolicy="no-referrer"/>
+              ) : (
+                <Link
+                  to="/login"
+                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Log in"
+                  title="Log in"
+                >
+                  Log in
+                </Link>
+              )}
             </li>
+
+         
           </ul>
           <div className="lg:hidden">
             <button
@@ -164,14 +175,14 @@ const Navbar = () => {
                           Blog
                         </Link>
                       </li>
-                        <li className="text-black rounded-full flex justify-center items-center">
-                          <button className="mr-1">
-                            <FaSun></FaSun>
-                          </button>
-                          <button>
-                            <FaMoon></FaMoon>
-                          </button>
-                        </li>
+                      <li className="text-black rounded-full flex justify-center items-center">
+                        <button className="mr-1">
+                          <FaSun></FaSun>
+                        </button>
+                        <button>
+                          <FaMoon></FaMoon>
+                        </button>
+                      </li>
                       <li>
                         <Link
                           to="/"

@@ -95,7 +95,7 @@ const Login = () => {
               className="flex items-center bg-white border shadow-lg   rounded-lg  w-full p-1"
             >
               <FaGithub className="text-2xl  m-1"></FaGithub>
-              <p className="flex-grow font-semibold">Continue with Facebook</p>
+              <p className="flex-grow font-semibold">Continue with Github</p>
             </button>
           </div>
         </div>
