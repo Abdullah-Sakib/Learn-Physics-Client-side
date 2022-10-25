@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { googleLogIn, gitHubLogIn, logInWithEmailPassword } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const handleSubmit  = event => {
     event.preventDefault();
     const form = event.target;
@@ -14,21 +17,21 @@ const Login = () => {
     logInWithEmailPassword(email, password)
     .then(result => {
       form.reset();
-      console.log(result.user);
+      navigate(from, {replace: true});
     })
     .catch(error => console.error(error));
   }
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
-        console.log(result.user);
+        navigate(from, {replace: true});
       })
       .catch((error) => console.error(error));
   };
   const handleGigHubLogIn = () => {
     gitHubLogIn()
       .then((result) => {
-        console.log(result.user);
+        navigate(from, {replace: true});
       })
       .catch((error) => console.error(error));
   };

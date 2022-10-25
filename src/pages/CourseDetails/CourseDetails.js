@@ -6,6 +6,7 @@ const CourseDetails = () => {
   const courseData = useLoaderData();
   console.log(courseData);
   const {
+    id,
     courseImg,
     courseName,
     description,
@@ -34,26 +35,32 @@ const CourseDetails = () => {
                 {description.slice(0, 160) + "..."}
               </p>
             </div>
-            <div className="flex flex-col items-center ">
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-blue-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-              >
-                Get Primium Access
-              </Link>
+
+            <div className="flex items-center justify-center">
+              <img
+                className="rounded-full w-10 mr-3"
+                src={instructorImg}
+                alt=""
+              />
+              <div>
+                <p className="text-lg text-start font-semibold">
+                  {instructor}
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
         <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
           <img
-            className=" w-2/3 h-56 rounded shadow-lg lg:rounded-3xl lg:shadow-none sm:h-96 lg:h-2/3 mx-auto mt-24"
+            className=" w-2/3 h-56 rounded shadow-lg lg:rounded-3xl lg:shadow-none sm:h-96 lg:h-2/3 mx-auto  md:mt-24"
             src={courseImg}
             alt=""
           />
         </div>
       </div>
 
-      <div className="flex mb-20">
+      <div className=" md:flex  mb-20">
         <div className="px-5 mt-5">
           <div className="container mx-auto ">
             <h2 className="text-3xl text-start my-5 font-semibold">
@@ -69,7 +76,9 @@ const CourseDetails = () => {
                 <p className="text-2xl text-start font-semibold">
                   {instructor}
                 </p>
-                <p className="text-lg text-start font-semibold text-gray-600">{offeredBy}</p>
+                <p className="text-lg text-start font-semibold text-gray-600">
+                  {offeredBy}
+                </p>
               </div>
             </div>
           </div>
@@ -93,6 +102,15 @@ const CourseDetails = () => {
             {description}
           </p>
         </div>
+      </div>
+
+      <div className="flex flex-col mb-20 items-center ">
+        <Link
+          to={`/checkout/${id}`}
+          className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-blue-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+        >
+          Get Primium Access
+        </Link>
       </div>
     </div>
   );
