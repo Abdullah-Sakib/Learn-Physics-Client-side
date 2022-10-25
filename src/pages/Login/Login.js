@@ -13,6 +13,7 @@ const Login = () => {
     const password = form.password.value;
     logInWithEmailPassword(email, password)
     .then(result => {
+      form.reset();
       console.log(result.user);
     })
     .catch(error => console.error(error));

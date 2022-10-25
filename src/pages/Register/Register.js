@@ -4,7 +4,21 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
-  const { googleLogIn, gitHubLogIn } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, createUser } = useContext(AuthContext);
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email, password)
+    .then(result => {
+      form.reset();
+      console.log(result.user);
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  }
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
@@ -24,7 +38,7 @@ const Register = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="card flex-shrink-0 rounded-lg w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body w-full lg:w-96">
+            <form onSubmit={handleSubmit} className="card-body w-full lg:w-96">
               <h1 className="text-xl font-bold">Register now!</h1>
               <div className="form-control">
                 <label className="label">
@@ -51,7 +65,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button type='submit' className="btn btn-primary">Register</button>
               </div>
               <label className="text-center ">
                 <Link
