@@ -1,18 +1,22 @@
+import { updateProfile } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
-  const { googleLogIn, gitHubLogIn, createUser } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, createUser, updateUserProfile } = useContext(AuthContext);
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
+    const name = form.fullName.value;
+    const photo = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     createUser(email, password)
     .then(result => {
       form.reset();
+      profileUpdate(name, photo);
       console.log(result.user);
     })
     .catch(error => {
@@ -33,6 +37,13 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   };
+  const profileUpdate = (name, photoURL) => {
+    updateUserProfile(name, photoURL)
+    .then(()=>{
+      console.log('profile updated');
+    })
+    .catch(error => console.error(error))
+  }
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -40,6 +51,33 @@ const Register = () => {
           <div className="card flex-shrink-0 rounded-lg w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body w-full lg:w-96">
               <h1 className="text-xl font-bold">Register now!</h1>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Full Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="full name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  name="photoURL"
+                  placeholder="photo URL"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
