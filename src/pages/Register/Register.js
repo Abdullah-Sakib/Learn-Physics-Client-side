@@ -31,10 +31,11 @@ const Register = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -42,10 +43,11 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control mt-6">
@@ -53,7 +55,7 @@ const Register = () => {
               </div>
               <label className="text-center ">
                 <Link
-                  to="/register"
+                  to="/login"
                   className="label-text-alt link link-hover text-center"
                 >
                   Already have an account?
