@@ -7,7 +7,6 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <div className="bg-gray-900">
