@@ -82,7 +82,7 @@ const CheckOut = () => {
                 </div>
               </div>
             </div>
-            <div className="md:flex gap-5 mt-6 mb-10">
+            <div className="md:flex items-end gap-5 mt-6 mb-10">
               <div className="form-control flex-grow px-4">
                 <label className="label">
                   <span className="label-text font-semibold">
@@ -95,7 +95,7 @@ const CheckOut = () => {
                   className="input input-bordered "
                 />
               </div>
-              <button className="btn btn-primary mb-8 mt-4 w-1/5 ">Apply</button>
+              <button className="btn btn-primary w-1/5 ">Apply</button>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ const Blog = ({ children, title }) => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid max-w-sm gap-5 mb-8 lg:grid-cols-2 sm:mx-auto lg:max-w-full">
-        <div className="px-6 py-10 text-start border rounded lg:px-5 lg:py-10 ">
+        <div className="px-6 py-10 text-start border rounded-lg lg:px-5 lg:py-10 ">
           <h2
             className="inline-block max-w-full mx-auto mb-3 text-3xl font-extrabold leading-7 transition-colors duration-200 hover:text-deep-purple-accent-400"
             aria-label="Read article"
@@ -19,7 +19,7 @@ const Blog = ({ children, title }) => {
             support.
           </p>
         </div>
-        <div className="px-6 py-10 text-start border rounded lg:px-5 lg:py-10 ">
+        <div className="px-6 py-10 text-start border rounded-lg lg:px-5 lg:py-10 ">
           <h2
             className="inline-block max-w-full mx-auto mb-3 text-3xl font-extrabold leading-7 transition-colors duration-200 hover:text-deep-purple-accent-400"
             aria-label="Read article"
@@ -44,7 +44,7 @@ const Blog = ({ children, title }) => {
             8. Authress. <br />
           </p>
         </div>
-        <div className="px-6 py-10 text-start border rounded lg:px-5 lg:py-10 ">
+        <div className="px-6 py-10 text-start border rounded-lg lg:px-5 lg:py-10 ">
           <h2
             className="inline-block max-w-xs mx-auto mb-3 text-3xl font-extrabold leading-7 transition-colors duration-200 hover:text-deep-purple-accent-400"
             aria-label="Read article"
@@ -55,7 +55,7 @@ const Blog = ({ children, title }) => {
           The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
           </p>
         </div>
-        <div className="px-6 py-10 text-start border rounded lg:px-5 lg:py-10 ">
+        <div className="px-6 py-10 text-start border rounded-lg lg:px-5 lg:py-10 ">
           <h2
             className="inline-block max-w-xs mx-auto mb-3 text-3xl font-extrabold leading-7 transition-colors duration-200 hover:text-deep-purple-accent-400"
             aria-label="Read article"

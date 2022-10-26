@@ -30,17 +30,17 @@ export const router = createBrowserRouter([
       {
         path: 'courses',
         element: <Courses></Courses>,
-        loader: () => fetch('http://localhost:5000/')
+        loader: () => fetch('https://learn-physics-server.vercel.app/')
       },
       {
         path: 'course/:id',
         element: <CourseDetails></CourseDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({params}) => fetch(`https://learn-physics-server.vercel.app/details/${params.id}`)
       },
       {
         path: '/checkout/:id',
         element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({params}) => fetch(`https://learn-physics-server.vercel.app/details/${params.id}`)
       },
       {
         path:'blog',
