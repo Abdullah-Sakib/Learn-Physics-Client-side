@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
-  console.log(courseData);
   const {
     id,
     courseImg,
@@ -61,7 +60,7 @@ const CourseDetails = () => {
       </div>
 
       <div className=" md:flex  mb-20">
-        <div className="px-5 mt-5">
+        <div className="pl-14 pr-3 mt-5">
           <div className="container mx-auto ">
             <h2 className="text-3xl text-start my-5 font-semibold">
               Instructor

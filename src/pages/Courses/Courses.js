@@ -7,7 +7,7 @@ const Courses = () => {
   const data = useLoaderData();
   return (
     <div className='grid grid-cols-12 '>
-      <div className='col-span-3 px-5 mt-5 text-start'>
+      <div className='col-span-3 px-4 mt-5 text-start'>
         {
           data.map(option => <p key={option.id} className='mb-4 font-semibold text-lg text-gray-700'><Link to={`/course/${option.id}`}> <FaAngleDoubleRight className='mr-2 inline text-orange-400 text-xl'></FaAngleDoubleRight> {option.name}</Link></p>)
         }
