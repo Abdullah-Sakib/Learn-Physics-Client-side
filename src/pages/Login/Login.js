@@ -41,10 +41,10 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
-          <div className="card flex-shrink-0 rounded-lg w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit} className="card-body w-full lg:w-96">
+      <div className="p-3 min-h-screen bg-base-200">
+        <div className=" flex-col  mx-auto">
+          <div className=" rounded-lg w-full md:w-96 mx-auto shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit} className="card-body">
               <h1 className="text-xl font-bold">Login now!</h1>
               <div className="form-control">
                 <label className="label">
@@ -70,7 +70,7 @@ const Login = () => {
                   required
                 />
                 <label className="label">
-                  <Link to="/" className="label-text-alt link link-hover">
+                  <Link to="" className="label-text-alt link link-hover">
                     Forgot password?
                   </Link>
                 </label>
@@ -90,7 +90,7 @@ const Login = () => {
             </form>
           </div>
 
-          <div className="w-full  mt-4">
+          <div className="w-full md:w-96 mx-auto  mt-4">
             <button
               onClick={handleGoogleLogIn}
               className="flex items-center border bg-white shadow-lg rounded-lg w-full p-1 mb-2"

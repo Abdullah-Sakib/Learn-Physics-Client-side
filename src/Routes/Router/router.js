@@ -7,6 +7,7 @@ import Courses from "../../pages/Courses/Courses";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
+import Profile from "../../pages/Profile/Profile";
 import Register from "../../pages/Register/Register";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path:'blog',
         element: <Blog></Blog>
+      },
+      {
+        path: 'profile',
+        element: <Profile></Profile>
       }
     ]
   },

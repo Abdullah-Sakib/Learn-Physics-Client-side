@@ -9,11 +9,9 @@ const Navbar = () => {
   const [dark, setDark] = useState(true);
   const { user } = useContext(AuthContext);
 
-  const toggleMode = () =>{
+  const toggleMode = () => {
     setDark(!dark);
-  }
-
-  console.log(dark);
+  };
 
   return (
     <div className="bg-gray-900">
@@ -67,21 +65,26 @@ const Navbar = () => {
             </li>
             <li className="text-white  border-2 p-1 rounded-full flex justify-center items-center">
               <button onClick={toggleMode} className="pr-2">
-                <FaSun className={dark || 'text-orange-300'}></FaSun>
+                <FaSun className={dark || "text-orange-300"}></FaSun>
               </button>
-              <button onClick={toggleMode} className={dark && "text-orange-300"}>
+              <button
+                onClick={toggleMode}
+                className={dark && "text-orange-300"}
+              >
                 <FaMoon></FaMoon>
               </button>
             </li>
             <li>
               {user?.uid ? (
-                <img
-                  title={user?.displayName}
-                  className="w-10 rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                  referrerPolicy="no-referrer"
-                />
+                <Link to='/profile'>
+                  <img
+                    title={user?.displayName}
+                    className="w-10 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                    referrerPolicy="no-referrer"
+                  />
+                </Link>
               ) : (
                 <Link
                   to="/login"
@@ -187,21 +190,24 @@ const Navbar = () => {
                       </li>
                       <li className="text-black border-2 w-14 mx-auto p-1  rounded-full flex justify-center items-center">
                         <button onClick={toggleMode} className="pr-2">
-                          <FaSun className={dark || 'text-orange-300'}></FaSun>
+                          <FaSun className={dark || "text-orange-300"}></FaSun>
                         </button>
                         <button onClick={toggleMode}>
-                          <FaMoon className={dark && 'text-orange-300'}></FaMoon>
+                          <FaMoon
+                            className={dark && "text-orange-300"}
+                          ></FaMoon>
                         </button>
                       </li>
                       <li>
                         {user?.uid ? (
+                          <Link to='/profile'>
                           <img
                             title={user?.displayName}
                             className="w-10 mx-auto rounded-full"
                             src={user?.photoURL}
                             alt=""
                             referrerPolicy="no-referrer"
-                          />
+                          /></Link>
                         ) : (
                           <Link
                             to="/login"

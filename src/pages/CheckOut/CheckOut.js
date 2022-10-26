@@ -95,7 +95,7 @@ const CheckOut = () => {
                   className="input input-bordered "
                 />
               </div>
-              <button className="btn btn-primary w-1/5 ">Apply</button>
+              <button className="btn btn-primary mt-2 w-1/5 ">Apply</button>
             </div>
           </div>
         </div>

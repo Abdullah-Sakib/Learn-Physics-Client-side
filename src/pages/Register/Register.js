@@ -44,10 +44,10 @@ const Register = () => {
   }
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
-          <div className="card flex-shrink-0 rounded-lg w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit} className="card-body w-full lg:w-96">
+      <div className="p-3  min-h-screen bg-base-200">
+        <div className="w-full  flex-col ">
+          <div className="flex-shrink-0 rounded-lg w-full md:w-96 mx-auto shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit} className="card-body w-full">
               <h1 className="text-xl font-bold">Register now!</h1>
 
               <div className="form-control">
@@ -114,7 +114,7 @@ const Register = () => {
             </form>
           </div>
 
-          <div className="w-full  mt-4">
+          <div className=" mt-4 md:w-96 mx-auto">
             <button
               onClick={handleGoogleLogIn}
               className="flex items-center border bg-white shadow-lg rounded-lg w-full p-1 mb-2"
