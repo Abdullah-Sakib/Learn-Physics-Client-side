@@ -21,6 +21,15 @@ https://learn-physics-f2810.web.app/
 
 ## Technologies
 
-**Client:** React, TailwindCSS, daisyUI, React Icons, React router dom, Firebase.
+**Client-side:**
+- React
+- TailwindCSS
+- daisyUI
+- React Icons
+- React router dom
+- Firebase
 
-**Server:** Node, Express, vercel
+**Server-side:** 
+- Node
+- Express
+- vercel
