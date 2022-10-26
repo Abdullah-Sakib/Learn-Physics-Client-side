@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
   const { googleLogIn, gitHubLogIn, createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
@@ -16,7 +17,7 @@ const Register = () => {
     .then(result => {
       form.reset();
       profileUpdate(name, photo);
-      console.log(result.user);
+      navigate('/')
     })
     .catch(error => {
       console.error(error)
@@ -25,22 +26,20 @@ const Register = () => {
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
-        console.log(result.user);
+        navigate("/")
       })
       .catch((error) => console.error(error));
   };
   const handleGigHubLogIn = () => {
     gitHubLogIn()
       .then((result) => {
-        console.log(result.user);
+        navigate('/')
       })
       .catch((error) => console.error(error));
   };
   const profileUpdate = (name, photoURL) => {
     updateUserProfile(name, photoURL)
-    .then(()=>{
-      console.log('profile updated');
-    })
+    .then(()=>{})
     .catch(error => console.error(error))
   }
   return (

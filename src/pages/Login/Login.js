@@ -3,23 +3,27 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useState } from "react";
 
 const Login = () => {
   const { googleLogIn, gitHubLogIn, logInWithEmailPassword } = useContext(AuthContext);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   const handleSubmit  = event => {
     event.preventDefault();
+    setError(null)
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     logInWithEmailPassword(email, password)
     .then(result => {
+      setError(null)
       form.reset();
       navigate(from, {replace: true});
     })
-    .catch(error => console.error(error));
+    .catch(error => setError(error.message));
   }
   const handleGoogleLogIn = () => {
     googleLogIn()
@@ -74,6 +78,7 @@ const Login = () => {
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">Login</button>
               </div>
+              <p className="text-red-500">{error}</p>
               <label className="text-center ">
                 <Link
                   to="/register"

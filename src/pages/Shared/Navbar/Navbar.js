@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/blog"
                 aria-label="Product pricing"
                 title="Product pricing"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
