@@ -6,39 +6,44 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useState } from "react";
 
 const Login = () => {
-  const { googleLogIn, gitHubLogIn, logInWithEmailPassword } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, logInWithEmailPassword } =
+    useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
-  const handleSubmit  = event => {
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setError(null)
+    setError(null);
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     logInWithEmailPassword(email, password)
-    .then(result => {
-      setError(null)
-      form.reset();
-      navigate(from, {replace: true});
-    })
-    .catch(error => setError(error.message));
-  }
+      .then((result) => {
+        setError(null);
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => setError(error.message));
+  };
+
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
+
   const handleGigHubLogIn = () => {
     gitHubLogIn()
       .then((result) => {
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
+
   return (
     <div>
       <div className="p-3 min-h-screen bg-base-200">
@@ -76,7 +81,9 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
               </div>
               <p className="text-red-500">{error}</p>
               <label className="text-center ">

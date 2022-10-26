@@ -33,7 +33,10 @@ const Blog = ({ children, title }) => {
             supports authentication using passwords, phone numbers, popular
             federated identity providers like Google, Facebook and Twitter, and
             more. <br /> <br />
-            <span className="font-semibold">Other options to implement authentication </span><br />
+            <span className="font-semibold">
+              Other options to implement authentication{" "}
+            </span>
+            <br />
             1. STYTCH. <br />
             2. Ory. <br />
             3. Supabase. <br />
@@ -52,7 +55,11 @@ const Blog = ({ children, title }) => {
             How does the private route work?
           </h2>
           <p className="max-w-full text-xl mb-2 text-gray-700">
-          The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
+            The private route component is similar to the public route, the only
+            change is that redirect URL and authenticate condition. If the user
+            is not authenticated he will be redirected to the login page and the
+            user can only access the authenticated routes If he is authenticated
+            (Logged in).
           </p>
         </div>
         <div className="px-6 py-10 text-start border rounded-lg lg:px-5 lg:py-10 ">
@@ -60,11 +67,19 @@ const Blog = ({ children, title }) => {
             className="inline-block max-w-xs mx-auto mb-3 text-3xl font-extrabold leading-7 transition-colors duration-200 hover:text-deep-purple-accent-400"
             aria-label="Read article"
           >
-           What is Node? How does Node work?
+            What is Node? How does Node work?
           </h2>
           <p className="max-w-full text-xl mb-2 text-gray-700">
-          Node. js (Node) is an open source development platform for executing JavaScript code server-side. Node is useful for developing applications that require a persistent connection from the browser to the server and is often used for real-time applications such as chat, news feeds and web push notifications. <br />
-          It is used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
+            Node. js (Node) is an open source development platform for executing
+            JavaScript code server-side. Node is useful for developing
+            applications that require a persistent connection from the browser
+            to the server and is often used for real-time applications such as
+            chat, news feeds and web push notifications. <br />
+            It is used as backend service where javascript works on the
+            server-side of the application. This way javascript is used on both
+            frontend and backend. Node. js runs on chrome v8 engine which
+            converts javascript code into machine code, it is highly scalable,
+            lightweight, fast, and data-intensive.
           </p>
         </div>
       </div>

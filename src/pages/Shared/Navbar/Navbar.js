@@ -45,7 +45,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to=""
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -76,7 +76,7 @@ const Navbar = () => {
             </li>
             <li>
               {user?.uid ? (
-                <Link to='/profile'>
+                <Link to="/profile">
                   <img
                     title={user?.displayName}
                     className="w-10 rounded-full"
@@ -170,7 +170,7 @@ const Navbar = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to=""
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 "
@@ -200,14 +200,15 @@ const Navbar = () => {
                       </li>
                       <li>
                         {user?.uid ? (
-                          <Link to='/profile'>
-                          <img
-                            title={user?.displayName}
-                            className="w-10 mx-auto rounded-full"
-                            src={user?.photoURL}
-                            alt=""
-                            referrerPolicy="no-referrer"
-                          /></Link>
+                          <Link to="/profile">
+                            <img
+                              title={user?.displayName}
+                              className="w-10 mx-auto rounded-full"
+                              src={user?.photoURL}
+                              alt=""
+                              referrerPolicy="no-referrer"
+                            />
+                          </Link>
                         ) : (
                           <Link
                             to="/login"

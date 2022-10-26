@@ -13,49 +13,54 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const router = createBrowserRouter([
   {
-    paht: '/', 
+    paht: "/",
     element: <Main></Main>,
     children: [
       {
-        path:'/',
-        element:<Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: 'login',
-        element: <Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'register',
-        element: <Register></Register>
+        path: "register",
+        element: <Register></Register>,
       },
       {
-        path: 'courses',
+        path: "courses",
         element: <Courses></Courses>,
-        loader: () => fetch('https://learn-physics-server.vercel.app/')
+        loader: () => fetch("https://learn-physics-server.vercel.app/"),
       },
       {
-        path: 'course/:id',
+        path: "course/:id",
         element: <CourseDetails></CourseDetails>,
-        loader: ({params}) => fetch(`https://learn-physics-server.vercel.app/details/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://learn-physics-server.vercel.app/details/${params.id}`),
       },
       {
-        path: '/checkout/:id',
-        element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>,
-        loader: ({params}) => fetch(`https://learn-physics-server.vercel.app/details/${params.id}`)
+        path: "/checkout/:id",
+        element: (
+          <PrivetRoute>
+            <CheckOut></CheckOut>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://learn-physics-server.vercel.app/details/${params.id}`),
       },
       {
-        path:'blog',
-        element: <Blog></Blog>
+        path: "blog",
+        element: <Blog></Blog>,
       },
       {
-        path: 'profile',
-        element: <Profile></Profile>
-      }
-    ]
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+    ],
   },
   {
-    path:'*',
-    element:<ErrorPage></ErrorPage>
-  }
-
-])
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
+]);

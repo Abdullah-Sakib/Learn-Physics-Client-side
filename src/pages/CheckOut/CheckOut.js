@@ -9,6 +9,7 @@ const CheckOut = () => {
   return (
     <div className="container mx-auto">
       <div className=" md:flex pt-8">
+
         <div className="md:w-1/2  text-start px-5">
           <h2 className="text-2xl font-semibold mb-3">Complete Payment</h2>
           <p className="text-gray-500">
@@ -49,7 +50,7 @@ const CheckOut = () => {
             <button className="btn btn-primary w-full my-8">
               Complete Purchase
             </button>
-            <div className="bg-gray-300 px-3 py-2 rounded-lg mb-10" >
+            <div className="bg-gray-300 px-3 py-2 rounded-lg mb-10">
               <p className="text-center text-sm text-gray-700">
                 Your card will be charged when you select "Complete Purchase".
                 You will gain access to this product immediately after your
@@ -58,6 +59,7 @@ const CheckOut = () => {
             </div>
           </div>
         </div>
+
         <div className="md:w-1/2 ">
           <div>
             <div className="">
@@ -99,6 +101,7 @@ const CheckOut = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

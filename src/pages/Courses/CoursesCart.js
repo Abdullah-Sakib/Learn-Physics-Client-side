@@ -3,7 +3,8 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const CoursesCart = ({ data }) => {
-  const { id, img, name, providerImage, offeredBy, rattings, level, length } = data;
+  const { id, img, name, providerImage, offeredBy, rattings, level, length } =
+    data;
   return (
     <div>
       <Link to={`/course/${id}`}>

@@ -57,6 +57,7 @@ const AuthProvider = ({children}) => {
   
 
   const authInfo = { user,loading,  setUser, googleLogIn, gitHubLogIn, logInWithEmailPassword, createUser, updateUserProfile, logOut};
+  
   return (
     <AuthContext.Provider value={authInfo}>
       {children}

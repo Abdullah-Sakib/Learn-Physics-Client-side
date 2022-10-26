@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { googleLogIn, gitHubLogIn, createUser, updateUserProfile } = useContext(AuthContext);
+  const { googleLogIn, gitHubLogIn, createUser, updateUserProfile } =
+    useContext(AuthContext);
+
   const navigate = useNavigate();
-  const handleSubmit = event => {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.fullName.value;
@@ -14,34 +17,38 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     createUser(email, password)
-    .then(result => {
-      form.reset();
-      profileUpdate(name, photo);
-      navigate('/')
-    })
-    .catch(error => {
-      console.error(error)
-    })
-  }
+      .then((result) => {
+        form.reset();
+        profileUpdate(name, photo);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
-        navigate("/")
+        navigate("/");
       })
       .catch((error) => console.error(error));
   };
+
   const handleGigHubLogIn = () => {
     gitHubLogIn()
       .then((result) => {
-        navigate('/')
+        navigate("/");
       })
       .catch((error) => console.error(error));
   };
+
   const profileUpdate = (name, photoURL) => {
     updateUserProfile(name, photoURL)
-    .then(()=>{})
-    .catch(error => console.error(error))
-  }
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+  
   return (
     <div>
       <div className="p-3  min-h-screen bg-base-200">
@@ -101,7 +108,9 @@ const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button type='submit' className="btn btn-primary">Register</button>
+                <button type="submit" className="btn btn-primary">
+                  Register
+                </button>
               </div>
               <label className="text-center ">
                 <Link
