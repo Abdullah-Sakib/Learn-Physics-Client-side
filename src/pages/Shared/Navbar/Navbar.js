@@ -58,9 +58,9 @@ const Navbar = () => {
                 Blog
               </Link>
             </li>
-            <li className="text-white border p-1 rounded-full flex justify-center items-center">
-              <button className="mr-1">
-                <FaSun></FaSun>
+            <li className="text-white  border-2 p-1 rounded-full flex justify-center items-center">
+              <button className="mr-2">
+                <FaSun className="text-orange-300"></FaSun>
               </button>
               <button>
                 <FaMoon></FaMoon>
@@ -68,7 +68,13 @@ const Navbar = () => {
             </li>
             <li>
               {user?.uid ? (
-                <img title={user?.displayName} className="w-10 rounded-full" src={user?.photoURL} alt=""  referrerPolicy="no-referrer"/>
+                <img
+                  title={user?.displayName}
+                  className="w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                  referrerPolicy="no-referrer"
+                />
               ) : (
                 <Link
                   to="/login"
@@ -80,8 +86,6 @@ const Navbar = () => {
                 </Link>
               )}
             </li>
-
-         
           </ul>
           <div className="lg:hidden">
             <button
@@ -107,7 +111,7 @@ const Navbar = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm">
+                <div className="p-5 bg-white border rounded shadow-sm absolute top-0 left-0 w-full">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -142,14 +146,14 @@ const Navbar = () => {
                       </button>
                     </div>
                   </div>
-                  <nav>
+                  <nav className="">
                     <ul className="space-y-4">
                       <li>
                         <Link
-                          to="/"
+                          to="/courses"
                           aria-label="Our product"
                           title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 "
                         >
                           Courses
                         </Link>
@@ -159,38 +163,48 @@ const Navbar = () => {
                           to="/"
                           aria-label="Our product"
                           title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 "
                         >
                           FAQ
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/blog"
                           aria-label="Product pricing"
                           title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 "
                         >
                           Blog
                         </Link>
                       </li>
-                      <li className="text-black rounded-full flex justify-center items-center">
+                      <li className="text-black border-2 w-14 mx-auto p-1  rounded-full flex justify-center items-center">
                         <button className="mr-1">
-                          <FaSun></FaSun>
+                          <FaSun className="text-orange-400"></FaSun>
                         </button>
                         <button>
                           <FaMoon></FaMoon>
                         </button>
                       </li>
                       <li>
-                        <Link
-                          to="/"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          log in
-                        </Link>
+                        {user?.uid ? (
+                          <img
+                            title={user?.displayName}
+                            className="w-10 mx-auto rounded-full"
+                            src={user?.photoURL}
+                            alt=""
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <Link
+                            to="/login"
+                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                            aria-label="Log in"
+                            title="Log in"
+                          >
+                            Log in
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>
