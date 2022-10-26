@@ -11,6 +11,7 @@ https://learn-physics-f2810.web.app/
 ## Features
 
 - Clickable course card.
+- Firebase authentication.
 - Course details pdf.
 - Mobile and desktop responsive.
 - Toggle theam ( dark / light ).
