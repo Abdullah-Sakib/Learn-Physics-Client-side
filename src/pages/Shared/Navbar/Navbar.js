@@ -6,7 +6,14 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dark, setDark] = useState(true);
   const { user } = useContext(AuthContext);
+
+  const toggleMode = () =>{
+    setDark(!dark);
+  }
+
+  console.log(dark);
 
   return (
     <div className="bg-gray-900">
@@ -59,10 +66,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="text-white  border-2 p-1 rounded-full flex justify-center items-center">
-              <button className="mr-2">
-                <FaSun className="text-orange-300"></FaSun>
+              <button onClick={toggleMode} className="pr-2">
+                <FaSun className={dark || 'text-orange-300'}></FaSun>
               </button>
-              <button>
+              <button onClick={toggleMode} className={dark && "text-orange-300"}>
                 <FaMoon></FaMoon>
               </button>
             </li>
@@ -179,11 +186,11 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li className="text-black border-2 w-14 mx-auto p-1  rounded-full flex justify-center items-center">
-                        <button className="mr-1">
-                          <FaSun className="text-orange-400"></FaSun>
+                        <button onClick={toggleMode} className="pr-2">
+                          <FaSun className={dark || 'text-orange-300'}></FaSun>
                         </button>
-                        <button>
-                          <FaMoon></FaMoon>
+                        <button onClick={toggleMode}>
+                          <FaMoon className={dark && 'text-orange-300'}></FaMoon>
                         </button>
                       </li>
                       <li>

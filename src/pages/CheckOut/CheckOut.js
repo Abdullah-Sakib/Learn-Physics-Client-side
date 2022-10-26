@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa";
 
 const CheckOut = () => {
   const data = useLoaderData();
-  console.log(data);
   const { courseImg, courseName, rattings, level, length } = data;
   return (
     <div className="container mx-auto">
