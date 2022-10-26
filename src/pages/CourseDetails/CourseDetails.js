@@ -1,6 +1,10 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import { BsFilePdf } from "react-icons/bs";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
@@ -30,24 +34,33 @@ const CourseDetails = () => {
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:leading-tight">
                 {courseName}
               </h2>
+
               <p className="text-base text-gray-700 md:text-lg">
                 {description.slice(0, 160) + "..."}
               </p>
             </div>
 
-            <div className="flex items-center justify-center">
-              <img
-                className="rounded-full w-10 mr-3"
-                src={instructorImg}
-                alt=""
-              />
-              <div>
-                <p className="text-lg text-start font-semibold">
-                  {instructor}
-                </p>
+            <div className="flex justify-evenly items-center">
+              <Pdf targetRef={ref} filename="learn-physics.pdf">
+                {({ toPdf }) => (
+                  <button className=" text-3xl " onClick={toPdf}>
+                    <BsFilePdf></BsFilePdf>
+                  </button>
+                )}
+              </Pdf>
+              <div className="flex items-center justify-center">
+                <img
+                  className="rounded-full w-10 mr-3"
+                  src={instructorImg}
+                  alt=""
+                />
+                <div>
+                  <p className="text-lg text-start font-semibold">
+                    {instructor}
+                  </p>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
         <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
@@ -60,8 +73,8 @@ const CourseDetails = () => {
       </div>
 
       <div className=" md:flex  mb-20">
-        <div className="pl-14 pr-3 mt-5">
-          <div className="container mx-auto ">
+        <div className=" md:pl-14 pr-3 mt-5">
+          <div className="container ml-5 ">
             <h2 className="text-3xl text-start my-5 font-semibold">
               Instructor
             </h2>
@@ -82,7 +95,7 @@ const CourseDetails = () => {
             </div>
           </div>
 
-          <div className="container mt-10 mx-auto text-start">
+          <div className="container mt-10 ml-5 text-start">
             <h2 className="text-3xl text-start mt-5 mb-2 font-semibold">
               Course information
             </h2>
@@ -95,7 +108,11 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        <div className="w-full px-5 md:px-0 md:w-2/3 mx-auto mb-20 ">
+        <div
+          className=" px-5 md:px-0 w-full md:w-[58%] mx-auto mb-20 "
+          style={{ textAlign: "start", padding: "20px", paddingRight: "20px" }}
+          ref={ref}
+        >
           <h2 className="text-4xl my-5 font-semibold">Course Description</h2>
           <p className="text-lg text-start text-gray-600 font-semibold">
             {description}
@@ -106,7 +123,7 @@ const CourseDetails = () => {
       <div className="flex flex-col mb-20 items-center ">
         <Link
           to={`/checkout/${id}`}
-          className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-blue-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+          className="inline-flex items-center justify-center w-1/2 h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-blue-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
         >
           Get Primium Access
         </Link>
