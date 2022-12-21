@@ -9,16 +9,16 @@ const CoursesCart = ({ data }) => {
     <div>
       <Link to={`/course/${id}`}>
         <div className="card rounded-lg card-compact h-full bg-base-100 shadow-xl ">
-          <figure className="h-52 w-full">
-            <img className="w-full" src={img} alt="" />
+          <figure className="h-60 sm:h-52 w-full">
+            <img className="w-full h-full" src={img} alt="" />
           </figure>
           <div className="card-body bg-white text-start">
-            <div className="h-32">
+            <div className="md:h-40 lg:h-32">
               <div className="flex items-center">
                 <img className="mr-2" src={providerImage} alt="" />
                 <span className="text-gray-600">{offeredBy}</span>
               </div>
-              <h2 className="card-title mt-1">{name}</h2>
+              <h2 className="card-title mt-1">{name?.length > 50 ? name.slice(0,50) + '...' : name}</h2>
             </div>
             <div className="flex items-center">
               <FaStar className="text-orange-400 mr-1 "></FaStar>
