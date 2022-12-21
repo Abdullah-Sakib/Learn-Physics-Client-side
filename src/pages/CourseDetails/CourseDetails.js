@@ -26,7 +26,7 @@ const CourseDetails = () => {
       <div className="  md:flex lg:pb-0 ">
         <div className="flex  md:w-1/2 flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
           <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-            <div className="max-w-xl mb-6">
+            <div className="max-w-xl mt-5 lg:mt-0 lg:mb-6 my-auto">
               <div>
                 <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                   Learn Physics
@@ -41,10 +41,10 @@ const CourseDetails = () => {
               </p>
             </div>
 
-            <div className="flex justify-evenly items-center">
-              <Pdf targetRef={ref} filename="learn-physics.pdf">
+            <div className="lg:flex justify-evenly items-center">
+              <Pdf targetRef={ref}  filename="learn-physics.pdf">
                 {({ toPdf }) => (
-                  <button className=" text-3xl " onClick={toPdf}>
+                  <button className="mt-2 text-3xl " onClick={toPdf}>
                     <BsFilePdf></BsFilePdf>
                   </button>
                 )}
